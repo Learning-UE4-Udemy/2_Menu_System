@@ -20,9 +20,12 @@ public:
 	virtual void Init();
 
 	UFUNCTION(Exec)
-	void Host();
+		void Host();
 
 	UFUNCTION(Exec)
-	void Join(const FString& Address);
+		void Join(const FString& Address);
+
+private:
+	TSubclassOf<class UUserWidget> MenuClass;
 
 };
