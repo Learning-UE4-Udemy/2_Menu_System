@@ -15,6 +15,11 @@ bool UMainMenu::Initialize()
 	return true;
 }
 
+void UMainMenu::SetMenuInterface(IMenuInterface* _MenuInterface) {
+	this->MenuInterface = _MenuInterface;
+}
+
+
 void UMainMenu::HostServer() {
 	UE_LOG(LogTemp, Warning, TEXT("I`m gonna host a server!"));
 

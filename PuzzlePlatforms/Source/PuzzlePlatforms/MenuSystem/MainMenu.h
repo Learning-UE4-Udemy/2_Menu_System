@@ -14,8 +14,13 @@ UCLASS()
 class PUZZLEPLATFORMS_API UMainMenu : public UUserWidget
 {
 	GENERATED_BODY()
+
 protected:
 	virtual bool Initialize();
+
+public:
+	void SetMenuInterface(IMenuInterface* MenuInterface);
+
 
 private:
 	UPROPERTY(meta = (BindWidget))

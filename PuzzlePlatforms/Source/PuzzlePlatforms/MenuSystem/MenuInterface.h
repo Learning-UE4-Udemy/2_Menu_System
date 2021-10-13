@@ -24,4 +24,6 @@ class PUZZLEPLATFORMS_API IMenuInterface
 public:
 
 	virtual void Host() = 0;
+
+
 };
