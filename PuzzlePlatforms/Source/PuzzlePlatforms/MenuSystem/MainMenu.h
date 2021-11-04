@@ -37,6 +37,9 @@ private:
 		class UButton* CancelJoinMenuButton;
 
 	UPROPERTY(meta = (BindWidget))
+		class UButton* ConfirmJoinMenuButton;
+
+	UPROPERTY(meta = (BindWidget))
 		class UWidgetSwitcher* MenuSwitcher;
 
 	UPROPERTY(meta = (BindWidget))
@@ -45,8 +48,16 @@ private:
 	UPROPERTY(meta = (BindWidget))
 		class UWidget* JoinMenu;
 
+	UPROPERTY(meta = (BindWidget))
+		class UEditableTextBox* IPAdressField;
+
+	
+	
 	UFUNCTION()
 		void HostServer();
+
+	UFUNCTION()
+		void JoinServer();
 
 	UFUNCTION()
 		void OpenJoinMenu();
