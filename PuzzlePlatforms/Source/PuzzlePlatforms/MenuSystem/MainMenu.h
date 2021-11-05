@@ -26,6 +26,9 @@ private:
 		class UButton* JoinButton;
 
 	UPROPERTY(meta = (BindWidget))
+		class UButton* QuitButton;
+
+	UPROPERTY(meta = (BindWidget))
 		class UButton* CancelJoinMenuButton;
 
 	UPROPERTY(meta = (BindWidget))
@@ -43,8 +46,8 @@ private:
 	UPROPERTY(meta = (BindWidget))
 		class UEditableTextBox* IPAdressField;
 
-	
-	
+
+
 	UFUNCTION()
 		void HostServer();
 
@@ -57,6 +60,7 @@ private:
 	UFUNCTION()
 		void OpenMainMenu();
 
-
+	UFUNCTION()
+		void QuitPressed();
 
 };

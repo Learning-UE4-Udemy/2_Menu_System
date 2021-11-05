@@ -7,7 +7,6 @@
 #include "Components/EditableTextBox.h"
 
 
-
 bool UMainMenu::Initialize()
 {
 	bool Success = Super::Initialize();
@@ -19,6 +18,9 @@ bool UMainMenu::Initialize()
 	if (!ensure(JoinButton != nullptr)) return false;
 	JoinButton->OnClicked.AddDynamic(this, &UMainMenu::OpenJoinMenu);
 
+	if (!ensure(QuitButton != nullptr)) return false;
+	QuitButton->OnClicked.AddDynamic(this, &UMainMenu::QuitPressed);
+
 	if (!ensure(CancelJoinMenuButton != nullptr)) return false;
 	CancelJoinMenuButton->OnClicked.AddDynamic(this, &UMainMenu::OpenMainMenu);
 
@@ -27,8 +29,6 @@ bool UMainMenu::Initialize()
 
 	return true;
 }
-
-
 
 void UMainMenu::HostServer() {
 	UE_LOG(LogTemp, Warning, TEXT("I`m gonna host a server!"));
@@ -45,7 +45,6 @@ void UMainMenu::JoinServer() {
 		const FString& Adress = IPAdressField->GetText().ToString();
 		MenuInterface->Join(Adress);
 	}
-
 }
 
 void UMainMenu::OpenJoinMenu() {
@@ -58,4 +57,14 @@ void UMainMenu::OpenMainMenu() {
 	if (!ensure(MenuSwitcher != nullptr)) return;
 	if (!ensure(MainMenu != nullptr)) return;
 	MenuSwitcher->SetActiveWidget(MainMenu);
+}
+
+void UMainMenu::QuitPressed() {
+	UWorld* World = GetWorld();
+	if (!ensure(World != nullptr))return;
+
+	APlayerController* PlayerController = World->GetFirstPlayerController();
+	if (!ensure(PlayerController != nullptr))return;
+
+	PlayerController->ConsoleCommand("quit");
 }
