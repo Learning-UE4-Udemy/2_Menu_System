@@ -18,7 +18,6 @@ protected:
 	virtual bool Initialize();
 
 
-
 private:
 	UPROPERTY(meta = (BindWidget))
 		class UButton* HostButton;
